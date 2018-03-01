@@ -4,6 +4,7 @@
 #include "HackNSlashPlayerController.h"
 #include "HackNSlashCharacter.h"
 #include "UObject/ConstructorHelpers.h"
+#include "GameFramework/HUD.h"
 
 AHackNSlashGameMode::AHackNSlashGameMode()
 {
@@ -16,4 +17,7 @@ AHackNSlashGameMode::AHackNSlashGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+
+	static ConstructorHelpers::FObjectFinder<UClass> HUDBPClass(TEXT("/Game/Blueprints/HUD_BP"));
+	HUDClass = (UClass*)HUDBPClass.Object;
 }
